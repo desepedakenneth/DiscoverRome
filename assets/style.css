@@ -1,0 +1,371 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --roman-red: #8B4513;
+    --roman-gold: #D4AF37;
+    --terra-cotta: #E2725B;
+    --olive-green: #556B2F;
+    --marble-white: #F5F5F5;
+    --roman-purple: #4B0082;
+    --mediterranean-blue: #1E90FF;
+    --sunset-orange: #FF7F50;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.7;
+    color: #333;
+    padding-top: 76px;
+    background: linear-gradient(135deg, var(--marble-white) 0%, #f0f8ff 100%);
+}
+
+/* ---------- Navbar ---------- */
+.custom-navbar {
+    background: linear-gradient(135deg, var(--roman-red) 0%, #A0522D 100%);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 30px rgba(139, 69, 19, 0.3);
+    border-bottom: 2px solid var(--roman-gold);
+}
+.navbar-brand {
+    font-size: 1.8rem;
+    color: var(--marble-white) !important;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.navbar-nav .nav-link {
+    color: var(--marble-white) !important;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    position: relative;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active { color: var(--roman-gold) !important; }
+.navbar-nav .nav-link:hover { transform: translateY(-2px); }
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--roman-gold);
+    transition: width 0.3s ease;
+}
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after { width: 100%; }
+
+/* ---------- Hero (home page) ---------- */
+.hero {
+    height: calc(100vh - 76px);
+    margin-top: -76px;
+    background: linear-gradient(135deg,
+            rgba(139, 69, 19, 0.4) 0%,
+            rgba(212, 175, 55, 0.4) 50%,
+            rgba(30, 144, 255, 0.4) 100%),
+        url('header.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+}
+.hero-gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, rgba(139, 69, 19, 0.4) 0%, transparent 50%, rgba(30, 144, 255, 0.4) 100%);
+}
+.hero-bottom-gradient {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 100px;
+    background: linear-gradient(to top, var(--marble-white) 0%, transparent 100%);
+}
+.hero-content { position: relative; z-index: 2; }
+.hero-content .lead {
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+.cta-button {
+    background: linear-gradient(135deg, var(--roman-gold) 0%, var(--terra-cotta) 100%);
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    color: white;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(212, 175, 55, 0.6);
+    background: linear-gradient(135deg, var(--terra-cotta) 0%, var(--roman-gold) 100%);
+    color: white;
+}
+
+/* ---------- Page header (inner pages) ---------- */
+.page-header {
+    margin-top: -76px;
+    padding: 160px 0 90px;
+    text-align: center;
+    color: white;
+    background: linear-gradient(135deg,
+            rgba(139, 69, 19, 0.65) 0%,
+            rgba(212, 175, 55, 0.5) 50%,
+            rgba(30, 144, 255, 0.5) 100%),
+        url('header.jpeg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.page-header h1 { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); }
+.page-header p { text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); font-size: 1.2rem; margin: 0; }
+.page-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: linear-gradient(to top, var(--marble-white) 0%, transparent 100%);
+}
+
+/* ---------- Sections ---------- */
+.about, .visit, .contact {
+    background: linear-gradient(135deg, var(--marble-white) 0%, #f8f9fa 50%, var(--marble-white) 100%);
+    position: relative;
+}
+.about-card {
+    background: linear-gradient(135deg, #02c363 20%, #F4F5F0 50%, #CD212A 100%);
+    color: #333;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+.about-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+    z-index: 1;
+}
+.about-card > * { position: relative; z-index: 2; }
+.about h2, .visit h2, .contact h2 { font-weight: 600; color: var(--roman-red); }
+
+.attractions, .explore-site {
+    background: linear-gradient(135deg, var(--marble-white) 0%, #e8f4f8 50%, var(--marble-white) 100%);
+    position: relative;
+}
+.section-title {
+    background: linear-gradient(135deg, var(--roman-red) 0%, var(--roman-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+    padding-bottom: 10px;
+    position: relative;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--roman-gold) 0%, var(--terra-cotta) 100%);
+    border-radius: 2px;
+}
+
+/* ---------- Attraction cards (clickable) ---------- */
+.card-link { display: block; height: 100%; text-decoration: none; color: inherit; }
+.attraction-card {
+    border: none;
+    overflow: hidden;
+    background: white;
+    position: relative;
+}
+.attraction-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--roman-red) 0%, var(--roman-gold) 50%, var(--mediterranean-blue) 100%);
+    z-index: 2;
+}
+.card-link:hover .attraction-card,
+.card-link:focus-visible .attraction-card {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(139, 69, 19, 0.2) !important;
+}
+.card-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.card-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+}
+.attraction-card .card-body {
+    padding: 2rem;
+    background: linear-gradient(to bottom, white 0%, #f8f9fa 100%);
+}
+.attraction-card .card-title { color: var(--roman-red); font-weight: bold; margin-bottom: 1rem; font-size: 1.3rem; }
+.attraction-card .card-text { color: #666; line-height: 1.6; font-size: 0.95rem; }
+.read-more { display: inline-block; margin-top: 1rem; font-weight: 600; color: var(--terra-cotta); }
+.card-link:hover .read-more { color: var(--roman-red); }
+
+/* ---------- Info cards (home / about / visit) ---------- */
+.info-card {
+    background: white;
+    border: none;
+    border-top: 4px solid var(--roman-gold);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    height: 100%;
+}
+.info-card i { font-size: 2.2rem; color: var(--terra-cotta); }
+.info-card h3 { color: var(--roman-red); margin: 0.75rem 0; font-size: 1.25rem; font-weight: bold; }
+.info-card p { color: #555; font-size: 0.95rem; margin-bottom: 0; }
+a.info-link { text-decoration: none; display: block; height: 100%; color: inherit; }
+a.info-link:hover .info-card { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(139, 69, 19, 0.2) !important; }
+
+/* ---------- Gallery ---------- */
+.gallery { background: linear-gradient(135deg, #f8f9fa 0%, var(--marble-white) 50%, #f8f9fa 100%); }
+.gallery-item {
+    position: relative;
+    height: 280px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+.gallery-item:hover { transform: scale(1.05); box-shadow: 0 15px 35px rgba(139, 69, 19, 0.3); }
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.6) 0%, rgba(212, 175, 55, 0.7) 100%);
+    color: #fff;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    transition: opacity 0.4s ease;
+}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-caption { text-align: center; color: var(--roman-red); font-weight: bold; margin-top: 0.75rem; }
+
+/* ---------- Visit ---------- */
+.visit-card {
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.05) 0%, rgba(212, 175, 55, 0.1) 50%, rgba(30, 144, 255, 0.05) 100%);
+    border: 1px solid rgba(139, 69, 19, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+}
+.visit p { color: #000; line-height: 1.7; font-size: 1rem; }
+
+/* ---------- Contact ---------- */
+.contact-card { background: white; border: none; border-top: 4px solid var(--roman-gold); padding: 2rem; height: 100%; }
+.contact-card h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    color: #333;
+    background: #f8f9fa;
+    border: 1px solid rgba(139, 69, 19, 0.15);
+}
+.contact-link i { font-size: 1.8rem; }
+.contact-link .fb { color: #1877F2; }
+.contact-link .mail { color: var(--terra-cotta); }
+.contact-link:hover { background: #fff; box-shadow: 0 8px 20px rgba(139, 69, 19, 0.15); color: var(--roman-red); }
+.contact-link small { display: block; color: #777; }
+.contact .form-control:focus { border-color: var(--roman-gold); box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25); }
+
+/* ---------- End banner + footer ---------- */
+.end-section { position: relative; width: 100%; height: 100vh; overflow: hidden; }
+.end-image {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 100%);
+}
+.end-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(245,245,245,1) 0%, rgba(245,245,245,0.6) 40%, rgba(245,245,245,0.2) 70%, rgba(245,245,245,0) 100%);
+}
+.footer-custom {
+    background: linear-gradient(135deg, var(--roman-red) 0%, #2c1810 100%);
+    color: var(--marble-white);
+    border-top: 3px solid var(--roman-gold);
+}
+.footer-custom a { color: var(--roman-gold); text-decoration: none; margin: 0 0.5rem; }
+.footer-custom a:hover { color: white; }
+
+/* ---------- Misc ---------- */
+section { position: relative; }
+.card, .gallery-item, .btn, .nav-link { transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+:focus-visible { outline: 3px solid var(--roman-gold); outline-offset: 2px; }
+
+::-webkit-scrollbar { width: 12px; }
+::-webkit-scrollbar-track { background: linear-gradient(var(--marble-white), #f0f0f0); }
+::-webkit-scrollbar-thumb { background: linear-gradient(var(--roman-red), var(--terra-cotta)); border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(var(--terra-cotta), var(--roman-red)); }
+
+@media (max-width: 768px) {
+    body { padding-top: 66px; }
+    .hero, .page-header { margin-top: -66px; }
+    .hero-content h1 { font-size: 2.5rem; }
+    .hero-content .lead { font-size: 1.2rem; }
+    .gallery-item { height: 200px; }
+    .attraction-card .card-body { padding: 1.5rem; }
+}
+@media (max-width: 576px) {
+    .hero { height: 70vh; background-attachment: scroll; }
+    .hero-content h1 { font-size: 2rem; }
+    .card-image { height: 200px; }
+    .cta-button { padding: 12px 30px; font-size: 1.1rem; }
+    .page-header { padding: 130px 0 70px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+}
+
+/* ---------- Single-file page switching (no JavaScript) ---------- */
+/* Each <main class="page"> is hidden until a menu link targets it (e.g. #about).
+   Home is last in the HTML and shows by default; it hides when another page is targeted. */
+.page { display: none; }
+.page:target { display: block; }
+#home { display: block; }
+.page:target ~ #home { display: none; }
+
+/* Highlight the current page in the menu */
+body:not(:has(.page:target)) .navbar-nav .nav-link[href="#home"],
+body:has(#home:target) .navbar-nav .nav-link[href="#home"],
+body:has(#about:target) .navbar-nav .nav-link[href="#about"],
+body:has(#attractions:target) .navbar-nav .nav-link[href="#attractions"],
+body:has(#experience:target) .navbar-nav .nav-link[href="#experience"],
+body:has(#visit:target) .navbar-nav .nav-link[href="#visit"],
+body:has(#contact:target) .navbar-nav .nav-link[href="#contact"] {
+    color: var(--roman-gold) !important;
+}
